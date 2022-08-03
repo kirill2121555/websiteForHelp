@@ -1,0 +1,46 @@
+.header{
+    grid-area: h;
+  
+  }
+
+
+.clip {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  width: 1200px;
+  -webkit-box-orient: vertical;  
+
+  }
+
+  .clipp {
+    display: -webkit-box;
+    overflow: hidden;
+    width: 1150px;
+    -webkit-box-orient: vertical;
+  
+  
+    }
+
+    .f{
+      padding: 25px;
+    
+    }
+
+
+
+
+
+    .test{
+   background-color: blue;
+      width:1200px;
+  }
+
+
+  .brd {
+     /* Параметры границы */
+    padding: 10px; /* Поля вокруг текста */
+    outline: 5px solid aqua; /* Чёрная рамка */
+    border-radius: 10px; /* Радиус скругления */
+
+  }
