@@ -2,5 +2,40 @@
 .header{
     grid-area: h;
     width: 500px;
-  
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
   }
+  .head{
+    grid-area: h;
+    width: 500px;
+
+  }
+  
+.hea{
+  grid-area: h;
+
+ 
+  
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  z-index: 1;
+}
+
+
+.page{
+  
+  height: 650px;
+
+}

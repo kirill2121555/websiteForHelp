@@ -15,7 +15,7 @@ const Navbar = observer(() => {
     {user.user.isAuth ? (
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-          <b><NavLink to="main" className='nav-link'>Главная</NavLink></b>
+        
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,16 +40,12 @@ const Navbar = observer(() => {
                 <b><NavLink to="logout" className="nav-link">Выйти</NavLink></b>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+           
           </div>
         </div>
       </nav>) :
       (<nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-          <b><NavLink to="main" className='nav-link'>Главная</NavLink></b>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

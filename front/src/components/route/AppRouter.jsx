@@ -16,6 +16,7 @@ const{user}=useContext(Context)
    if(user.isAuth==false){
     a= false
    }
+
 return(
         <Routes> 
             {(user.isAuth) && authRoutes.map(({path, Element}) =>

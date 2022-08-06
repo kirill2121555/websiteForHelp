@@ -18,7 +18,7 @@ class AssistantController {
       const user = await userModel.findById(id)
       await user.needhelp.push(asist._id)
       await user.save()
-      return res.json('add asist secsesful');
+      res.status(200).json({message: "Пост добавлен"})
     } catch (e) {
       next(e);
     }
@@ -30,7 +30,8 @@ class AssistantController {
     const { name, phone, description, listThings, city, secondName } = req.body
     const nh = await needHelpModel.findByIdAndUpdate(id, { name: name, phone: phone, description: description, listThings: listThings, city: city, secondName: secondName })
     await nh.save()
-    res.json('good')
+    res.status(200).json({message: "Пост обновлен"})
+
   }
 
 
@@ -80,7 +81,8 @@ class AssistantController {
       }
     }
     await user.save();
-    res.json('otlihno')
+    res.status(200).json({message: "Пост удален"})
+
   }
 }
 

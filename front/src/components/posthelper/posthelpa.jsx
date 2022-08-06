@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const posthelp = (props) => {
 
-  return (
+  return (<div>
     <div className="card" >
       <h2 className="card-header">{props.person.name}</h2>
       <h6 className="card-header">{props.person.description}</h6>
@@ -17,7 +17,7 @@ const posthelp = (props) => {
 
         <NavLink to={'/gum/' + props.person._id}><button type="button" className="btn btn-primary">Подробнее</button></NavLink>
       </div>
-    </div>
+    </div>   <br></br></div>
 
   )
 }

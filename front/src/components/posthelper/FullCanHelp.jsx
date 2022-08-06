@@ -17,7 +17,7 @@ const FullCanHelp = (props) => {
 
     return (
         <div class="card">
-            <div className="f">
+            <div >
                 <div class="card" >
                     <h2 class="card-header">{devise.title}</h2>
                     <div class="card-body">
@@ -27,7 +27,10 @@ const FullCanHelp = (props) => {
                         <p><small>Email: {devise.email}</small></p>
                         <p><small>Телефое: {devise.phone} </small></p>
                         <p><small>Адрес: {devise.city} </small></p>
-
+                        {devise.picture ?
+                            <div><img className="picturfull" src={`http://localhost:5000/images/` + devise.picture} alt="КАРТИНКА"></img>
+                            </div> : ' '
+                        }
                     </div>
                 </div>
             </div>

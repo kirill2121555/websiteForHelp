@@ -68,17 +68,24 @@ class UserController {
     const user = userModel.findOne({ email: email })
     const a = await userModel.updateOne({ email: email }, { removepassword: activateLink })
     await mailService.sendRemovePasswordMail(email, `${process.env.CLIENT_URL}/removePassword/${activateLink}`)
-    res.json('good')
+   
+    res.status(200).json({message: "Письмо отправлено на почту"})
+
   }
 
   async removepassword(req, res, next) {
+    try{
     const { email, password, id } = req.body
     await userService.removepassword(email, password, id)
-    res.json('likr')
-    return true
+    res.status(200).json({message: "Пароль востановлен"})
+    }catch(e){
+      res.status(401).json({message: "Не удалось востановить пароль"})
+
+    }
+   
   }
 
- 
+
 
   async logout(req, res, next) {
     try {
@@ -101,6 +108,19 @@ class UserController {
     }
   }
 
+
+  async getRole(req, res, next) {
+    try {
+      const userId = await userService.getId(req)
+      const user = await userModel.findById(userId)
+      console.log('getRole    ' + user.role)
+      return res.json(user.role)
+
+
+    } catch (e) {
+      next(e)
+    }
+  }
 
 
 

@@ -18,13 +18,20 @@ const Logout = observer(() => {
 
     }
 
-return <header className={s.header}>
-        <div>
-            <div class="d-grid gap-2 d-md-block">
-                <NavLink to="../main"><button class="btn btn-primary" type="button" onClick={logoutt}>Выйти</button></NavLink>
+    return <div>
+        <header className={s.hea}>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Вы точно хотите выйти с сайта ?</h5>
+                </div>
+                <div class="modal-footer">
+                    <NavLink to="../main"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={logoutt}>Выйти</button></NavLink>
+                    <NavLink to="../main"> <button type="button" class="btn btn-primary">Остаться на сайте</button></NavLink>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
+        <br></br>
+    </div>
 })
 
 export default Logout

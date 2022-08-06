@@ -9,7 +9,9 @@ const pointHelpSchema=new Schema({
     email:{type:String,required: true},
     region:{type:String,required: true},
     listThings:{type:String},
-    description:{type:String}
+    description:{type:String},
+    comment:[{type:Schema.Types.ObjectId, ref:'Comment'}],
+
 })
 
 

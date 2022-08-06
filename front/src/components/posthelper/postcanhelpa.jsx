@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const posthelp = (props) => {
 
-
+  console.log(props.person)
   return (
     <div>
       <div class="card" >
@@ -17,7 +17,15 @@ const posthelp = (props) => {
           <p><small>Телефое: {props.person.phone} </small></p>
           <p><small>Адрес: {props.person.city} </small></p>
 
+          {props.person.picture ?
+            <div><img className="pictur" src={`http://localhost:5000/images/` + props.person.picture} alt="Изображение"></img> <br></br>
+             </div> : ' '
+          }
+
+
           <NavLink to={'/ch/' + props.person._id}><button type="button" class="btn btn-primary">Подробнее</button></NavLink>
+
+
         </div>
       </div><br></br></div>
 

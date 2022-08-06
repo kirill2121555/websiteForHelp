@@ -24,7 +24,7 @@ const Registration = observer(() => {
 
   }
 
-  return <header className={s.header}>
+  return  <header className={s.head}>
     <div>
       <form>
         <div class="mb-3">
@@ -67,6 +67,7 @@ const Registration = observer(() => {
 
     </div>
   </header>
+  
 })
 
 export default Registration

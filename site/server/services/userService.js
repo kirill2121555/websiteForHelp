@@ -53,7 +53,7 @@ class UserService {
             user.password = await bcrypt.hash(password, 5)
             await userModel.updateOne({ email: email }, { removepassword: '' })
             await user.save();
-            return;
+            return
         } catch (e) {
             console.log(e)
         }

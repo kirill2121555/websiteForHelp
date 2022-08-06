@@ -6,7 +6,8 @@ const AssistantSchema=new Schema({
     phone:{type:String,required: true},
     city:{type:String,required: true},
     description:{type:String},
-    title:{type:String}
+    title:{type:String},
+    picture:{type:String},
 })
 
 module.exports=model('Assistant',AssistantSchema);

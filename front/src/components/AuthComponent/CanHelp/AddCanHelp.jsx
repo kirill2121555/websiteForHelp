@@ -1,12 +1,15 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useCallback } from "react";
+import { useRef } from "react";
 import { NavLink } from 'react-router-dom';
-import { $authHost } from '../../http';
+import { $authHost, $host } from '../../http';
 import g from './../../posthelper/module.css'
 
 const AddCanHelp = (props) => {
 
-    const add = async (email, name, city, description, phone, title) => {
-        const de = await $authHost.post('api/addAsistant', { email, name, city, description, phone, title })
+    const add = async (email, name, city, description, phone, title,pictur) => {
+        const de = await $authHost.post('api/addAsistant', { email, name, city, description, phone, title ,pictur})
     }
 
     const [name, setName] = useState('')
@@ -15,17 +18,26 @@ const AddCanHelp = (props) => {
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
     const [title, setTitle] = useState('')
-
-    
+    const [img, setImg] = useState('null')
+    const [avatar, setAvatar] = useState()
+  
     const click = async () => {
         try {
-            let data;
-            data = await add(email, name, city, description, phone, title);
-            window.location.reload()
-        } catch (e) {
-            alert(e.response)
+            const data = new FormData();
+            data.append('avatar', img);
+            await $authHost.post('/api/upload', data, {
+                headers: {
+                    'content-type': 'mulpipart/form-data'
+                }
+            })
+           .then(await add(email, name, city, description, phone, title, img.name))
+           .then(window.location.reload())
+        } catch (error) {
+            console.log('eror')
         }
     }
+  
+  
 
     return (
         <div className='brd'>
@@ -69,10 +81,15 @@ const AddCanHelp = (props) => {
                     onChange={e => setEmail(e.target.value)}>
                 </input>
             </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Добавте фото</label>
+                <input class="form-control" type="file" id="formFile" onChange={e => setImg(e.target.files[0])}></input>
+            </div>
             <NavLink to={'/cha'}>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button class="btn btn-primary me-md-2" type="button" onClick={click}>Добавить</button>
-                </div></NavLink>
+                </div>
+            </NavLink>
         </div>
     );
 }

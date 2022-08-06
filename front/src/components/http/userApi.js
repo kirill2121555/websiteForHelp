@@ -17,6 +17,10 @@ export const check = async () => {
     localStorage.setItem('token', data.token)
     return jwt_decode(data.token)
 }
+export const getRoleuser = async () => {
+    const data = await $authHost.get('api/getRole')
+    return data
+}
 export const logout = async () => {
     console.log(localStorage)
     localStorage.removeItem('token');

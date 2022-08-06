@@ -1,26 +1,21 @@
-import React from 'react';
-import PostNeedHelp from './Postneedhelp';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import a from './Header.module.css'
 
-export default class NeedhelpList extends React.Component {
-  state = {
-    persons: []
-  }
+const Headerr = (props) => {
+     return (
+          <div className='wrapper'>
+          <div className='content'>
+               Главная               <div >
 
-  componentDidMount() {
-    axios.get(`http://localhost:5000/api/getAllNeedHelp`)
-      .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
-      })
-  }
-  
-  render() {
-    return (
-      <ul>
-        {this.state.persons.map(person => <PostNeedHelp person={person} />)}
-      </ul>
-    )
-  }
+               </div>
+               <div className='footer'>kdvsksoidjfsodijfoisdjfiosdjfiosjfojsoiffjsjfoisjfiosjfojsdoifjfsiod</div>
+
+          </div>
+</div>
+
+
+     );
 }
 
+export default Headerr

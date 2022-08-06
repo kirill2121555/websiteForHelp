@@ -7,6 +7,7 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '.';
 import { check, getnick } from './components/http/userApi';
 import { Spinner } from "react-bootstrap";
+import Footer from './components/Navbar/Footer';
 
 
 const App = observer(() => {
@@ -18,6 +19,7 @@ const App = observer(() => {
       user.setIsAuth(true)
       user.setNick(data.nick)
       user.setUserId(data.id)
+      user.setRole(data.role)
       
     }).finally(() => setLoading(false))
   }, [])
@@ -32,6 +34,7 @@ const App = observer(() => {
 
         <Navbar />
         <AppRouter />
+        <Footer/>
 
       </div>
     </div>

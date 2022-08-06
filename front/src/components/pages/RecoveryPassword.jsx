@@ -8,7 +8,7 @@ import { tryremovepassvord } from "../http/feth";
 
 const RecoveryPassword = observer(() => {
   const user = useContext(Context)
-  const [email, setEmail] = useState('qq@gmail.com')
+  const [email, setEmail] = useState('')
 
   const click = async () => {
     try {
@@ -22,7 +22,7 @@ const RecoveryPassword = observer(() => {
 
 
 
-  return <header className={s.header}>
+  return <header className={s.hea}>
     <div>
       <form>
         <div class="mb-3">
