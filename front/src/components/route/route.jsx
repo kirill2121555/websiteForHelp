@@ -26,10 +26,7 @@ import AllNeedHelp from '../AuthComponent/NeedHelp/AllNeedHelp';
 
 
 export const publicRoutes = [
-    {
-       // path: "/main",
-        //Element: <Headerr />
-    },
+   
     {
         path: "/gum",
         Element: <ListHelp />

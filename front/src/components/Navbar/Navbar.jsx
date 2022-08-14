@@ -1,21 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import s from './Navbar.module.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { useContext } from "react";
 import { Context } from "../..";
 import { observer } from "mobx-react-lite";
 
 
-
 const Navbar = observer(() => {
 
   const user = useContext(Context)
-
+  
   return <nav className={s.nav}>
     {user.user.isAuth ? (
       <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-        
+
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -40,7 +39,7 @@ const Navbar = observer(() => {
                 <b><NavLink to="logout" className="nav-link">Выйти</NavLink></b>
               </li>
             </ul>
-           
+
           </div>
         </div>
       </nav>) :

@@ -1,27 +1,51 @@
 import React from "react";
-import s from './module.css'
 import PostHelp from "./posthelpa";
-import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
+import { getAllPointHelp, searchph } from "../http/feth";
 
-export default class ListHelp extends React.Component {
-    state = {
-      persons: []
+const ListHelp = (props) => {
+  const [persons, setPersons] = useState([])
+  const [sort, setSort] = useState('date')
+  const [textsearch, settextsearch] = useState('')
+  useEffect(() => {
+    getAllPointHelp(sort).then(data => setPersons(data))
+    if(textsearch!==''){
+
     }
-  
-   componentDidMount() {
-      axios.get(`http://localhost:5000/api/getAllPointHelp`)
-        .then(res => {
-          const persons = res.data;
-          this.setState({ persons });
-        })
-    }
-    
-    render() {
-      return (
-        <ul>
-          { this.state.persons.map(person => <PostHelp person={person} /> )}
-        </ul>
-      )
-    }
+  }, [sort])
+
+  const search = async () => {
+    const a =await searchph(textsearch)
+
   }
-  
+
+  console.log(sort)
+  return (
+    <div>
+      <p>Сортировать:
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}>
+          <option value='like'>По лайкам</option>
+          <option value='views'>По просмотрам</option>
+          <option value='date'>По дате</option>
+        </select>
+      </p>
+      <div class="d-flex" role="search">
+
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+          value={textsearch}
+          onChange={e => settextsearch(e.target.value)}
+        ></input>
+        <button class="btn btn-outline-success" type="submit" onClick={search}>Search</button>
+      </div>
+
+      <ul>
+        {persons.map(person => <PostHelp person={person} />)}
+      </ul>
+    </div>
+  )
+}
+
+export default ListHelp

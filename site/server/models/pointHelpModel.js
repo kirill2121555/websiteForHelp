@@ -10,8 +10,13 @@ const pointHelpSchema=new Schema({
     region:{type:String,required: true},
     listThings:{type:String},
     description:{type:String},
+    datecreate:{type:Date,default: Date.now},
+    views:{type:Number,default:0},
+    like:{type:Number,default:0},
+    dislike:{type:Number,default:0},
     comment:[{type:Schema.Types.ObjectId, ref:'Comment'}],
 
+   
 })
 
 

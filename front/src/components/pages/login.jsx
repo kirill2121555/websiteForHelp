@@ -4,7 +4,7 @@ import React, { useState, useContext } from "react";
 import s from './Header.module.css'
 import { Context } from "./../../index";
 import { check, getnick, getRoleuser, login } from './../http/userApi'
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 
 
@@ -13,25 +13,22 @@ const Login = observer(() => {
   const user = useContext(Context)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate();
+
 
   const click = async () => {
     try {
-      let data;
-      let a;
+      let data;      
+
       data = await login(email, password);
       data = await check()
-      a = await getRoleuser()
+      navigate("/gum");
+      window.location.reload()
 
-        window.location.reload()
-      user.setUser(user)
-      user.setIsAuth(true)
-
-  
-
-  
-
-    } catch (e) {
-      alert(e.response)
+     // user.setUser(user)
+   //   user.setIsAuth(true)
+        } catch (e) {
+      console.log(e)
     } 
   }
 
@@ -55,9 +52,10 @@ const Login = observer(() => {
         ></input>
       </div>
 
-      <NavLink to="../main"><button type="submit" class="btn btn-primary" onClick={click}>Войти</button></NavLink>
 
     </form>
+    <button type="submit" class="btn btn-primary" onClick={click}>Войти</button>
+
     <a href="recoveryPassword">Забыли пароль?</a>
     <br></br>
     Ещё нет аккаунта?<a href="registration">Зарегистрируйтесь</a>
