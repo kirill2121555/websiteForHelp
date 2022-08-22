@@ -15,9 +15,7 @@ const pointHelpSchema=new Schema({
     like:{type:Number,default:0},
     dislike:{type:Number,default:0},
     comment:[{type:Schema.Types.ObjectId, ref:'Comment'}],
-
-   
+    alltext:{type:String,lowercase: true}, 
 })
-
 
 module.exports=model('pointHelp',pointHelpSchema);

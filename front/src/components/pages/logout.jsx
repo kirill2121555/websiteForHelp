@@ -25,8 +25,8 @@ const Logout = observer(() => {
                     <h5 class="modal-title">Вы точно хотите выйти с сайта ?</h5>
                 </div>
                 <div class="modal-footer">
-                    <NavLink to="../main"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={logoutt}>Выйти</button></NavLink>
-                    <NavLink to="../main"> <button type="button" class="btn btn-primary">Остаться на сайте</button></NavLink>
+                    <NavLink to="../"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick={logoutt}>Выйти</button></NavLink>
+                    <NavLink to="../"> <button type="button" class="btn btn-primary">Остаться на сайте</button></NavLink>
                 </div>
             </div>
         </header>

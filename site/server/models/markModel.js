@@ -10,5 +10,4 @@ const MarkSchema=new Schema({
     }
 })
 
-
 module.exports=model('Mark',MarkSchema);

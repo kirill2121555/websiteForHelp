@@ -8,22 +8,22 @@ const posthelp = (props) => {
   return (
     <div>
       <div class="card" >
-        <h2 class="card-header">{props.person.title}</h2>
+        <h2 class="card-header">{props.post.title}</h2>
         <div class="card-body">
-          <h6 class="clip">{props.person.description}</h6>
-          <p><small>Имя: {props.person.name}</small></p>
+          <h6 class="clip">{props.post.description}</h6>
+          <p><small>Имя: {props.post.name}</small></p>
 
-          <p><small>Email: {props.person.email}</small></p>
-          <p><small>Телефое: {props.person.phone} </small></p>
-          <p><small>Адрес: {props.person.city} </small></p>
+          <p><small>Email: {props.post.email}</small></p>
+          <p><small>Телефое: {props.post.phone} </small></p>
+          <p><small>Адрес: {props.post.city} </small></p>
 
-          {props.person.picture ?
-            <div><img className="pictur" src={`http://localhost:5000/images/` + props.person.picture} alt="Изображение"></img> <br></br>
+          {props.post.picture ?
+            <div><img className="pictur" src={`http://localhost:5000/images/` + props.post.picture} alt="Изображение"></img> <br></br>
              </div> : ' '
           }
 
 
-          <NavLink to={'/ch/' + props.person._id}><button type="button" class="btn btn-primary">Подробнее</button></NavLink>
+          <NavLink to={'/ch/' + props.post._id}><button type="button" class="btn btn-primary">Подробнее</button></NavLink>
 
 
         </div>

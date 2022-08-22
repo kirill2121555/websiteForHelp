@@ -9,14 +9,27 @@ export const fetchOneNeedHelp = async (id) => {
     const { data } = await $host.get('api/getOneNeedHelp/' + id)
     return data
 }
+export const getDialog = async (id) => {
+    const { data } = await $authHost.get(`api/getDialog?companion=${id}`)
+    return data
+}
 
-export const fetchAllNeedHElp = async () => {
-    const { data } = await $host.get('api/getAllNeedHelp')
+export const allDialogs = async () => {
+    const { data } = await $authHost.get(`api/allDialogs`)
+    return data
+}
+
+export const fetchAllNeedHElp = async (text) => {
+    const { data } = await $host.get(`api/getAllNeedHelp?text=${text}`)
     return data
 }
 
 
 
+export const getAsistant = async (text) => {
+    const { data } = await $host.get(`api/getAsistant?text=${text}`)
+    return data
+}
 
 
 export const fetchAssist = async (id) => {
@@ -39,15 +52,11 @@ export const fetchOneCanHelp = async (id) => {
     return data
 }
 
-export const getAllPointHelp = async (sort) => {
-    const { data } = await $host.get(`api/getAllPointHelp?sort=${sort}`)
+export const getAllPointHelp = async (text,sort) => {
+    const { data } = await $host.get(`api/getAllPointHelp?text=${text}&sort=${sort}`)
     return data
 }
 
-export const searchph = async (search) => {
-    const { data } = await $host.get(`api/searchph?search=${search}`)
-    return data
-}
 
 export const tryremovepassvord = async (email) => {
     const dta = await $host.post('api/tryremovepassword', { email })

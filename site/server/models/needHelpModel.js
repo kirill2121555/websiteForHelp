@@ -6,8 +6,9 @@ const NeedHelpSchema=new Schema({
     phone:{type:String,required: true},
     city:{type:String,required: true},
     listThings:{type:String},
-    description:{type:String}
+    description:{type:String},
+    datecreate:{type:Date,default: Date.now},
+    alltext:{type:String,lowercase: true},
 })
-
 
 module.exports=model('NeedHelp',NeedHelpSchema);

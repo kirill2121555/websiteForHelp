@@ -10,7 +10,7 @@ class MailService {
                 secure: true,
                 auth: {
                     user: 'soninnomok@mail.ru',
-                    pass: 'y7F8pmhsWa4kSukqQHLW'
+                    pass: 'YN)iIJoonx33'
                 },
             });
 
@@ -36,7 +36,7 @@ class MailService {
             secure: true,
             auth: {
                 user: 'soninnomok@mail.ru',
-                pass: 'y7F8pmhsWa4kSukqQHLW'
+                pass: 'YN)iIJoonx33'
             },
         });
         let info = await transporter.sendMail({
@@ -60,7 +60,7 @@ class MailService {
             secure: true,
             auth: {
                 user: 'soninnomok@mail.ru',
-                pass: 'y7F8pmhsWa4kSukqQHLW'
+                pass: 'YN)iIJoonx33'
             },
         });
 

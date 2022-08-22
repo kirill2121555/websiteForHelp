@@ -23,12 +23,18 @@ import Chat from '../AuthComponent/Chat/Chat';
 import CreatePointHelp from '../AuthComponent/PointHelp/CreatePointHelp';
 import RequesеForAddPH from '../AuthComponent/PointHelp/RequesеForAddPH';
 import AllNeedHelp from '../AuthComponent/NeedHelp/AllNeedHelp';
+import Dialogs from '../AuthComponent/Chat/Dialogs';
 
 
 export const publicRoutes = [
    
     {
         path: "/gum",
+        Element: <ListHelp />
+    },
+     
+    {
+        path: "/",
         Element: <ListHelp />
     },
     {
@@ -116,6 +122,10 @@ export const authRoutes = [
     },
     {
         path: "/chat",
+        Element: <Dialogs />
+    },
+    {
+        path: "/chat/:id",
         Element: <Chat />
     },
     {

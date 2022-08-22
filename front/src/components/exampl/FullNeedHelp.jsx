@@ -10,7 +10,6 @@ const FullNeedHelp = (props) => {
     }, [])
     return (
         <div class="card">
-            <div className="f">
                 <div class="card">
 
                     <h2 class="card-header">{devise.name}</h2>
@@ -20,7 +19,6 @@ const FullNeedHelp = (props) => {
                         <p><small>Телефое: {devise.phone} </small></p>
                         <p><small>Адрес: {devise.city}</small></p>
                     </div>
-                </div>
             </div>
         </div>
 

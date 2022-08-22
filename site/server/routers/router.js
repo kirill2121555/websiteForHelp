@@ -14,7 +14,6 @@ const validationMiddlevare = require('../middlewares/validation-middlevare');
 
 const { validationResult } = require('express-validator');
 
-//isMobilePhone()       isNumeric()           notEmpty
 
 router.post('/registration',
     body('nick').isLength({ min: 3, max: 15 }).withMessage('Nick length must be between 3 and 15'),
@@ -146,7 +145,7 @@ router.post('/requesetaddPointHelp',
 
 router.post('/addComment/:id',
     body('text').notEmpty().withMessage('Email entered incorrectly'),
-    body('timeCreate').isDate().withMessage('Can not be empty'),
+    body('timeCreate').notEmpty().withMessage('Can not be empty'),
     validationMiddlevare,
     authMiddleware,
     commentController.CreateComment)
@@ -160,6 +159,9 @@ router.post('/grade/:id', authMiddleware, commentController.grade)
 router.post('/getmark/:id', authMiddleware, commentController.getmark)
 
 
+router.get('/getDialog', userController.getDialog);
+
+router.get('/allDialogs', userController.allDialogs);
 
 
 

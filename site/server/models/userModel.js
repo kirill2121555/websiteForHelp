@@ -10,11 +10,9 @@ const UserSchema=new Schema({
     nick:{type:String,required: true },
     assist:[{type:Schema.Types.ObjectId, ref:'Assistant'}],
     needhelp:[{type:Schema.Types.ObjectId, ref:'NeedHelp'}],
-
-   
-
-
-})
-
+    dialogs: {
+        type: Map,
+        of: String
+      },})
 
 module.exports=model('User',UserSchema);

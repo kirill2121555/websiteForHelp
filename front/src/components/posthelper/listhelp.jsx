@@ -8,17 +8,18 @@ const ListHelp = (props) => {
   const [persons, setPersons] = useState([])
   const [sort, setSort] = useState('date')
   const [textsearch, settextsearch] = useState('')
+  const [indicate, Setindicate] = useState('')
+
   useEffect(() => {
-    getAllPointHelp(sort).then(data => setPersons(data))
-    if(textsearch!==''){
-
+    if (textsearch === '') {
+      getAllPointHelp('', sort).then(data => setPersons(data))
+      Setindicate('')
     }
-  }, [sort])
-
-  const search = async () => {
-    const a =await searchph(textsearch)
-
-  }
+    if (textsearch !== '' && sort !== '') {
+      getAllPointHelp(textsearch, sort).then(data => setPersons(data))
+      Setindicate('')
+    }
+  }, [sort, indicate])
 
   console.log(sort)
   return (
@@ -38,11 +39,14 @@ const ListHelp = (props) => {
           value={textsearch}
           onChange={e => settextsearch(e.target.value)}
         ></input>
-        <button class="btn btn-outline-success" type="submit" onClick={search}>Search</button>
+        <button class="btn btn-outline-success" type="submit" onClick={() => Setindicate(true)}>Search</button>
       </div>
 
       <ul>
-        {persons.map(person => <PostHelp person={person} />)}
+        {persons.length !== 0 ?
+          persons.map(person => <PostHelp person={person} />) :
+          <h1>Совпаденпия не найдены</h1>
+        }
       </ul>
     </div>
   )
