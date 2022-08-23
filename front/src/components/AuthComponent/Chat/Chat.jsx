@@ -17,9 +17,8 @@ const Chat = () => {
     const [value, setValue] = useState('');
     const [connected, setConnected] = useState(false);
     const [username, setUsername] = useState(user.nick)
-    useEffect(async () => {
-        const a = await getDialog(id)
-        setMessages(a)
+    useEffect(() => {
+       getDialog(id).then(data=>setMessages(data))
 
         socket.on('message', function (data) {
             const message = JSON.parse(data)

@@ -1,16 +1,15 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { Context } from '../../..';
+import React, { useEffect, useState } from 'react';
 import Dialog from './Dialog';
 import { allDialogs } from '../../http/feth';
 
 
 const Dialogs = () => {
     const [posts, setPosts] = useState([])
-    const { user } = useContext(Context)
 
-    useEffect(async () => {
-        const data = await allDialogs()
-        setPosts(data)
+    useEffect(() => {
+        //const data = await allDialogs()
+        allDialogs().then(data=> setPosts(data))
+      //  setPosts(data)
     }, []);
 
     return (

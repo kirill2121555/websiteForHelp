@@ -3,25 +3,37 @@ import PostHelp from "./posthelpa";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getAllPointHelp, searchph } from "../http/feth";
+import PostsNeedHelp from "./postGum";
+import Pagination from "../elements/Pagination";
 
 const ListHelp = (props) => {
-  const [persons, setPersons] = useState([])
+  const [posts, setPosts] = useState([])
   const [sort, setSort] = useState('date')
   const [textsearch, settextsearch] = useState('')
   const [indicate, Setindicate] = useState('')
+  const [page, setPage] = useState(1)
+  const [postOnPage] = useState(7)
 
   useEffect(() => {
     if (textsearch === '') {
-      getAllPointHelp('', sort).then(data => setPersons(data))
+      getAllPointHelp('', sort).then(data => setPosts(data))
       Setindicate('')
     }
     if (textsearch !== '' && sort !== '') {
-      getAllPointHelp(textsearch, sort).then(data => setPersons(data))
+      getAllPointHelp(textsearch, sort).then(data => setPosts(data))
       Setindicate('')
     }
   }, [sort, indicate])
 
-  console.log(sort)
+
+  const postPerPage = page * postOnPage
+  const firstpostIndex = postPerPage - postOnPage
+  const currentPosts = posts.slice(firstpostIndex, postPerPage)
+
+  const paginat = pageNumber => setPage(pageNumber)
+
+
+
   return (
     <div>
       <p>Сортировать:
@@ -41,13 +53,16 @@ const ListHelp = (props) => {
         ></input>
         <button class="btn btn-outline-success" type="submit" onClick={() => Setindicate(true)}>Search</button>
       </div>
-
-      <ul>
-        {persons.length !== 0 ?
-          persons.map(person => <PostHelp person={person} />) :
-          <h1>Совпаденпия не найдены</h1>
-        }
-      </ul>
+      {posts.length !== 0 ?
+        <PostsNeedHelp
+          posts={currentPosts}
+        /> :
+        <h1>Совпаденпия не найдены</h1>}
+      <Pagination
+        postOnPage={postOnPage}
+        totalPost={posts.length}
+        paginate={paginat}
+      />
     </div>
   )
 }

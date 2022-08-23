@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 
 const posthelp = (props) => {
 
-  console.log(props.person)
   return (
     <div>
       <div class="card" >

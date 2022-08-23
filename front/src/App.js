@@ -9,7 +9,6 @@ import { check, getnick } from './components/http/userApi';
 import { Spinner } from "react-bootstrap";
 import Footer from './components/Navbar/Footer';
 
-
 const App = observer(() => {
   const { user } = useContext(Context)
   const [loading, setLoading] = useState(true)
@@ -20,7 +19,6 @@ const App = observer(() => {
       user.setNick(data.nick)
       user.setUserId(data.id)
       user.setRole(data.role)
-      
     }).finally(() => setLoading(false))
   }, [])
 
