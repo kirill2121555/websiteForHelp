@@ -14,10 +14,11 @@ const posthelp = (props) => {
         <p><small>Email: {props.post.email}</small></p>
         <p><small>Телефое: {props.post.phone} {props.post.nameBoss}  </small></p>
         <p><small>Адрес: {props.post.city} {props.post.address} </small></p>
-
         <NavLink to={'/gum/' + props.post._id}><button type="button" className="btn btn-primary">Подробнее</button></NavLink>
       </div>
-    </div>   <br></br></div>
+    </div>
+    <br></br>
+  </div>
 
   )
 }

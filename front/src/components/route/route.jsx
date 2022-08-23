@@ -1,11 +1,8 @@
-
 import React from 'react'
-
 import Post from '../posthelper/Post'
 import Login from '../pages/login';
 import ListHelp from '../posthelper/listhelp';
 import FullNeedHelp from './../exampl/FullNeedHelp'
-import Headerr from './../exampl/Header';
 import CanHelp from '../posthelper/canhelp'
 import FullCanHelp from '../posthelper/FullCanHelp'
 import CanHelpA from '../AuthComponent/CanHelp/CanHelpA'
@@ -25,14 +22,11 @@ import RequesеForAddPH from '../AuthComponent/PointHelp/RequesеForAddPH';
 import AllNeedHelp from '../AuthComponent/NeedHelp/AllNeedHelp';
 import Dialogs from '../AuthComponent/Chat/Dialogs';
 
-
 export const publicRoutes = [
-   
     {
         path: "/gum",
         Element: <ListHelp />
     },
-     
     {
         path: "/",
         Element: <ListHelp />
@@ -45,7 +39,6 @@ export const publicRoutes = [
         path: "/nh",
         Element: <AllNeedHelp />
     },
-
     {
         path: "/login",
         Element: <Login />
@@ -54,14 +47,10 @@ export const publicRoutes = [
         path: "/gum/:id",
         Element: <Post />
     },
-
-
     {
         path: "/ch/:id",
         Element: <FullCanHelp />
     },
-
-
     {
         path: "/nh/:id",
         Element: <FullNeedHelp />
@@ -79,13 +68,9 @@ export const publicRoutes = [
         Element: <RecoveryPassword />
     },
     {
-
         path: "/removePassword/:id",
         Element: <RemovePassword />
-
     },
-
-
 ]
 
 export const authRoutes = [
@@ -104,7 +89,8 @@ export const authRoutes = [
     {
         path: "/addcanhelp",
         Element: <AddCanHelp />
-    }, {
+    },
+    {
         path: "/logout",
         Element: <Logout />
     },
@@ -135,7 +121,5 @@ export const authRoutes = [
     {
         path: '/rfaph',
         Element: <RequesеForAddPH/>
-    },
-
-    
+    },   
 ]

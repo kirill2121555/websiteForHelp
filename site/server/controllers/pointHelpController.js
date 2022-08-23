@@ -47,9 +47,6 @@ class PointHelpController {
     try {
       const { sort } = req.query
       const { text } = req.query
-      console.log(sort)
-      console.log(text)
-
       let pointHelp
       switch (sort) {
         case 'like':
@@ -65,8 +62,6 @@ class PointHelpController {
           pointHelp = await pointHelpModel.find();
           break;
       }
-      console.log(sort)
-
       if (text === '') return res.status(200).json(pointHelp)
       if (text !== '') return res.status(200).json(find(pointHelp, text.toLowerCase())) 
     }

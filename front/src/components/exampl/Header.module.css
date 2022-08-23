@@ -13,7 +13,7 @@
   }
   .wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: center;
     min-height: 100%;
   }
   .content {

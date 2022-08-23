@@ -11,11 +11,15 @@ const Dialogs = () => {
         allDialogs().then(data=> setPosts(data))
       //  setPosts(data)
     }, []);
-
+console.log(posts)
     return (
         <div className="center">
             <div>
-                {posts.map(dialog => <Dialog dialog={dialog} />)}
+                {posts===null?
+                 <h1>У вас еще нет диалогов</h1>
+            :
+           posts.map(dialog => <Dialog dialog={dialog} />)
+            }
             </div>
         </div>
     );

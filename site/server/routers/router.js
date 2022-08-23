@@ -11,9 +11,7 @@ const commentController = require('../controllers/commentController');
 const fileMideeleware = require('../middlewares/file-mideeleware');
 const rolemoderMiddelware = require('../middlewares/rolemoder-middelware');
 const validationMiddlevare = require('../middlewares/validation-middlevare');
-
 const { validationResult } = require('express-validator');
-
 
 router.post('/registration',
     body('nick').isLength({ min: 3, max: 15 }).withMessage('Nick length must be between 3 and 15'),
@@ -30,20 +28,13 @@ router.post('/login',
 
 router.get('/auth', authMiddleware, userController.check)
 router.post('/logout', userController.logout);
-
-
 router.get('/getRole', authMiddleware, userController.getRole)
-
 router.get('/activate/:link', userController.activate);
-
 router.post('/tryremovepassword', userController.tryremovepassword);
 router.post('/removepassword', userController.removepassword);
 
-
 router.get('/getAsistant', assistantController.getAsistant)
 router.get('/getOneAsistant/:id', assistantController.getOneAsistant)
-
-
 router.get('/getAsistPerson', authMiddleware, assistantController.getAsistPerson)
 router.post('/deleteassist', authMiddleware, assistantController.deleteassist)
 router.post('/updateOneAsistant/:id',
@@ -69,15 +60,6 @@ router.post('/addAsistant',
     assistantController.addAsistant)
 
 router.post('/upload', fileMideeleware.single('avatar'), assistantController.addAt)
-
-
-
-
-
-
-
-
-
 
 router.post('/deleteneedhelp', authMiddleware, needHelpController.deleteneedhelp)
 router.post('/addNeedHelp',
@@ -106,8 +88,6 @@ router.get('/getNeedHelpPerson', authMiddleware, needHelpController.getNeedHelpP
 
 router.get('/getAllNeedHelp', needHelpController.getAllNeedHelp)
 router.get('/getOneNeedHelp/:id', needHelpController.getOneNeedHelp)
-
-
 
 router.get('/getAllPointHelp', pointHelpController.getAllPointHelp)
 router.get('/getOnePointHelp/:id', pointHelpController.getOnePointHelp)
@@ -141,8 +121,6 @@ router.post('/requesetaddPointHelp',
     authMiddleware,
     pointHelpController.requesetaddPointHelp)
 
-
-
 router.post('/addComment/:id',
     body('text').notEmpty().withMessage('Email entered incorrectly'),
     body('timeCreate').notEmpty().withMessage('Can not be empty'),
@@ -151,18 +129,9 @@ router.post('/addComment/:id',
     commentController.CreateComment)
 
 router.get('/getComment/:id', commentController.GetComments)
-
-
-
 router.post('/grade/:id', authMiddleware, commentController.grade)
-
 router.post('/getmark/:id', authMiddleware, commentController.getmark)
-
-
 router.get('/getDialog', userController.getDialog);
-
 router.get('/allDialogs', userController.allDialogs);
-
-
 
 module.exports = router

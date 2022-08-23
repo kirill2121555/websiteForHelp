@@ -9,7 +9,7 @@ const logger = require('./../loger/loger')
 const find = (pointHelp, text) => {
   const a = []
   for (let i = 0; i < pointHelp.length; i++) {
-    if (pointHelp[i].alltext.includes(text)) {
+    if (pointHelp[i].name.includes(text)) {
       a.push(pointHelp[i])
     }
   }

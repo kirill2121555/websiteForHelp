@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
+import { Context } from '../..';
 import { fetchAssist } from './../http/feth'
 import g from './module.css'
 
 const FullCanHelp = (props) => {
+    const user = useContext(Context)
+
     const { id } = useParams()
     const [devise, setDevise] = useState([])
 
@@ -27,7 +30,10 @@ const FullCanHelp = (props) => {
                                 <div><img className="picturfull" src={`http://localhost:5000/images/` + devise.picture} alt="КАРТИНКА"></img>
                                 </div> : ' '
                             }
-                            <NavLink to={'/chat/' + devise.autorid}><button type="button" class="btn btn-primary">Написать</button></NavLink>
+                            {user.user.isAuth ? (
+                                <NavLink to={'/chat/' + devise.autorid}><button type="button" class="btn btn-primary">Написать</button></NavLink>
+                            ) :
+                                <button type="button" class="btn btn-primary">Чтобы написать пользователю нужно заригистирироваться</button>}
                         </div>
                     </div>
                 </div>

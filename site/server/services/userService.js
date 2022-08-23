@@ -40,7 +40,6 @@ class UserService {
         await user.save();
     }
 
-
     async removepassword(email, password, id) {
         try {
             const user = await userModel.findOne({ email: email })

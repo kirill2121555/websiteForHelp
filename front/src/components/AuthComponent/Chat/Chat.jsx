@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import axios from "axios";
 import { Context } from '../../..';
 import { io } from "socket.io-client";
 import { useParams } from 'react-router-dom';

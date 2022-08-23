@@ -4,12 +4,13 @@ import { NavLink, useParams } from 'react-router-dom'
 import { useContext } from "react";
 import { Context } from "../..";
 import { observer } from "mobx-react-lite";
+import logo from './../../img/Logo.png'
 
 
 const Navbar = observer(() => {
 
   const user = useContext(Context)
-  
+
   return <nav className={s.nav}>
     {user.user.isAuth ? (
       <nav class="navbar navbar-expand-lg bg-light">
@@ -18,8 +19,10 @@ const Navbar = observer(() => {
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown"> 
+          <img  className={s.pi} src={logo} alt="Logo"></img>
             <ul class="navbar-nav">
+           
               <li class="nav-item">
                 <b><NavLink to="gum" className='nav-link'>Пункты Гум Помощи</NavLink></b>
               </li>
@@ -49,6 +52,7 @@ const Navbar = observer(() => {
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <NavLink to="gum"><img  className={s.pi} src={logo} alt="Logo"></img></NavLink>
             <ul class="navbar-nav">
               <li class="nav-item">
                 <b><NavLink to="gum" className='nav-link'>Пункты Гум Помощи</NavLink></b>

@@ -15,8 +15,8 @@ const UserSchema=new Schema({
     //dialogs:[{type:Schema.Types.ObjectId, ref:'Dialog'}]
     dialogs: {
         type: Map,
-        of: String
-      },
+        of: String,
+        default:''},
     //id типов с которыми общаюсь и ID на диалог
 })
 

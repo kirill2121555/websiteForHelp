@@ -3,15 +3,9 @@ import PostHelp from "./posthelpa";
 
 
 const PostsNeedHelp = (props) => {
-
-
     return (
         <div>
-            <ul>
-                    {props.posts.map(post => <PostHelp post={post} />) }
-                
-            </ul>
-
+            {props.posts.map(post => <PostHelp post={post} />)}
         </div>
     );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import PostHelp from "./posthelpa";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getAllPointHelp, searchph } from "../http/feth";
+import { getAllPointHelp } from "../http/feth";
 import PostsNeedHelp from "./postGum";
 import Pagination from "../elements/Pagination";
 
@@ -25,14 +25,10 @@ const ListHelp = (props) => {
     }
   }, [sort, indicate])
 
-
   const postPerPage = page * postOnPage
   const firstpostIndex = postPerPage - postOnPage
   const currentPosts = posts.slice(firstpostIndex, postPerPage)
-
   const paginat = pageNumber => setPage(pageNumber)
-
-
 
   return (
     <div>
@@ -46,12 +42,11 @@ const ListHelp = (props) => {
         </select>
       </p>
       <div class="d-flex" role="search">
-
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+        <input class="form-control me-2" type="search" placeholder="Введите данные для поиска" aria-label="Search"
           value={textsearch}
           onChange={e => settextsearch(e.target.value)}
         ></input>
-        <button class="btn btn-outline-success" type="submit" onClick={() => Setindicate(true)}>Search</button>
+        <button class="btn btn-outline-success" type="submit" onClick={() => Setindicate(true)}>Поиск</button>
       </div>
       {posts.length !== 0 ?
         <PostsNeedHelp

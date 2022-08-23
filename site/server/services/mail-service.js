@@ -1,7 +1,6 @@
 const nodemailer = require('nodemailer')
 
 class MailService {
-
     async sendActivationMail(to, link) {
         try {
             let transporter = nodemailer.createTransport({
@@ -10,7 +9,7 @@ class MailService {
                 secure: true,
                 auth: {
                     user: 'soninnomok@mail.ru',
-                    pass: 'YN)iIJoonx33'
+                    pass: 'rHykDd6idG0vTv5Gfyuz'
                 },
             });
 
@@ -36,7 +35,7 @@ class MailService {
             secure: true,
             auth: {
                 user: 'soninnomok@mail.ru',
-                pass: 'YN)iIJoonx33'
+                pass: 'rHykDd6idG0vTv5Gfyuz'
             },
         });
         let info = await transporter.sendMail({
@@ -52,7 +51,6 @@ class MailService {
         });
     }
 
-
     async requestforAddPointhelpMail(to ,name,nameBoss, email,phone,region,address,city,listThings, description) {
         let transporter = nodemailer.createTransport({
             host: "smtp.mail.ru",
@@ -60,7 +58,7 @@ class MailService {
             secure: true,
             auth: {
                 user: 'soninnomok@mail.ru',
-                pass: 'YN)iIJoonx33'
+                pass: 'rHykDd6idG0vTv5Gfyuz'
             },
         });
 

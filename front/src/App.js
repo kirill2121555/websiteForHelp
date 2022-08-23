@@ -27,15 +27,13 @@ const App = observer(() => {
   }
 
   return (
-    <div>
       <div className="app-wrapper">
 
         <Navbar />
-        <AppRouter />
+        <div className='height'> <AppRouter className='height'/></div>
         <Footer/>
 
       </div>
-    </div>
   );
 
 }

@@ -37,7 +37,7 @@ class CommentController {
             for (let i = 0; i < postHelp.comment.length; i++) {
                 comments.push(await commentModel.findById(postHelp.comment[i]))
             }
-            return res.status(200).json(comments.sort((x, y) => x.timeOfCreation - y.timeOfCreation))
+            return res.status(200).json(comments.sort((x, y) => y.timeOfCreation - x.timeOfCreation))
         } catch (error) {
             logger.error('Error in GetComments function');
             return res.status(400).json('problem with get comment')

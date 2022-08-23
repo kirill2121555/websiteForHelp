@@ -28,21 +28,22 @@ const CanHelp = (props) => {
   return (
     <div>
       <div class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+        <input class="form-control me-2" type="search" placeholder="Введите данные для поиска" aria-label="Search"
           value={textsearch}
           onChange={e => settextsearch(e.target.value)}
         ></input>
-        <button class="btn btn-outline-success" type="submit" onClick={() => Setindicate(true)}>Search</button>
+        <button class="btn btn-outline-success" type="submit" onClick={() => Setindicate(true)}>Поиск</button>
       </div>
       <div>
-        <CanHelpPost
+        {posts.length!==0?
+        <div> <CanHelpPost
           posts={currentPosts}
         />
         <Pagination
           postOnPage={postOnPage}
           totalPost={posts.length}
           paginate={paginat}
-        />
+        /></div>:<h1>Ничего не найдено</h1>}
       </div>
     </div>
   );

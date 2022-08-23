@@ -12,7 +12,8 @@ const UserSchema=new Schema({
     needhelp:[{type:Schema.Types.ObjectId, ref:'NeedHelp'}],
     dialogs: {
         type: Map,
-        of: String
+        of: String,
+        default:''
       },})
 
 module.exports=model('User',UserSchema);

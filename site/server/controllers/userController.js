@@ -133,7 +133,6 @@ class UserController {
     }
   }
 
-
   async getRole(req, res, next) {
     try {
       const userId = await userService.getId(req)
@@ -145,7 +144,6 @@ class UserController {
       return res.status(400).json('error')
     }
   }
-
 
   async getDialog(req, res, next) {
     try {
@@ -178,22 +176,22 @@ class UserController {
     }
   }
 
-
   async allDialogs(req, res, next) {
     try {
       console.log('allDialogs')
       const iId = await userService.getId(req)
       const i = await userModel.findById(iId)
       let data = [{}]
-
       let j = 0
-
       for (let [key, value] of i.dialogs) {
         const ss = await dialogModel.findById(value)
         data[j].mes = ss.messages[ss.messages.length - 1].message
         data[j].id = key
         data[j].name = ss.messages[ss.messages.length - 1].username
         j = j + 1;
+      }
+      if(data[0].id===undefined){
+        return res.json(null)
       }
       return res.json(data)
     } catch (e) {

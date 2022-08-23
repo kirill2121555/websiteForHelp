@@ -11,7 +11,6 @@ import { removepassvord } from "../http/feth";
 const RemovePassword = observer(() => {
     const user = useContext(Context)
     const { id } = useParams()
-    console.log(id)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -24,27 +23,35 @@ const RemovePassword = observer(() => {
         }
     }
 
-    return <header className={s.header}>
-        <div>
-            <form>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                    ></input>
+    return <div className="center">
+        <div className={s.page}>
+            <div className={s.head}>
+                <div className='message'>
+                    <div>
+                        <form>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                ></input>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
+                                ></input>
+                            </div>
+                        </form>
+                        <NavLink to='/login'> <button type="button" class="btn btn-primary" onClick={click}>Востановить пароль</button></NavLink>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1"
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                    ></input>
-                </div>
-            </form>
-            <NavLink to='/login'> <button onClick={click}>Востановить пароль</button></NavLink>
+            </div>
         </div>
-    </header>
+
+    </div>
+
 })
 
 export default RemovePassword

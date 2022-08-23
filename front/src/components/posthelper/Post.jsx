@@ -32,13 +32,18 @@ const Post = (props) => {
      }
 
      const marklike = async () => {
+          if(user.user.isAuth){
           await grade(id, 'like')
           window.location.reload()
-
+          }
+          else(alert('Чтобы оценить пост ввойдите в свой аккаунт'))
      }
      const markdislike = async () => {
+          if(user.user.isAuth){
           await grade(id, 'dislike')
           window.location.reload()
+     }
+          else(alert('Чтобы оценить пост ввойдите в свой аккаунт'))
      }
 
 
@@ -69,7 +74,6 @@ const Post = (props) => {
                               <p> <img className='p' src={like} alt="КАРТИНКА" onClick={marklike}></img>{devise.like}
                                    <img className='p' src={dislike} alt="КАРТИНКА" onClick={markdislike}></img>{devise.dislike}</p>
                     }
-
                </p>
                {user.user.isAuth
                     ?
@@ -85,10 +89,8 @@ const Post = (props) => {
                     </div>
                     :
                     ' '
-               }
-               <ul>
+               }              
                     {comments?.map(comment => <Comment comment={comment} />)}
-               </ul>
           </div>
      );
 }

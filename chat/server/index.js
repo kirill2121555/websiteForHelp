@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
 const start = async () => {
   try {
     await mongoose.connect('mongodb+srv://root:root@cluster0.xlabe.mongodb.net/?retryWrites=true&w=majority')
-    server.listen(9999, () => console.log('cool'));
+    server.listen(9999, () => console.log('start'));
     const a = await userModel.find()
   } catch (e) {
     console.log(e)

@@ -1,33 +1,31 @@
-.nav{
-    
-    grid-area: n;
-  
-    padding: 0px;
-    
-}
-.item{
-    color: blue;
-    text-decoration: none;
-    
+.nav {
 
-   padding: 25px;
- 
-    
+  grid-area: n;
+
+  padding: 0px;
+
 }
 
-.item a.active{
-    color: gold;
-    
+.item {
+  color: blue;
+  text-decoration: none;
+  padding: 25px;
 }
 
-.pi{
-    width: 35px ;
-  }
-  .pie{
-    width: 35px ;
-  }
+.item a.active {
+  color: gold;
 
-  .qwe {
-    background:#099;
-    float: left;
-    }
+}
+
+.pi {
+  width: 35px;
+}
+
+.pie {
+  width: 35px;
+}
+
+.qwe {
+  background: #099;
+  float: left;
+}
